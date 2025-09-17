@@ -18,21 +18,26 @@ const snake = [
 let food = {x: 15, y: 15};
 
 function snakeEquals(a, b) { 
-	/* fill here */
+	return a.x === b.x && a.y === b.y; 
 }
 
 function changeDirection(orientation) {
-    /* fill here */
+    
+    let index = orientation.indexOf(direction);
+    if (index < orientation.length){
+        direction = orientation[++index];
+    } else {
+        direction = orientation[0];
+    }
+   
 }
 
 function start() {
     const canvas  = document.getElementById("canvas");
     const context = canvas.getContext("2d");
-
-    const rightArrow = 39;
-    const leftArrow  = 37;
+    
     window.onkeydown = evt => {
-        const orientation = (evt.keyCode === rightArrow) ? clockwise : countercw;
+        const orientation = (evt.key === "ArrowRight") ? clockwise : countercw;
         changeDirection(orientation);
     };
 
@@ -63,15 +68,16 @@ function nextBoard() {
         food.y = Math.floor(Math.random() * 20);
     } else {
         /* fill here */ // no food found => no growth despite new head => remove last element
+        snake.pop();
     }
-
+    snake.unshift(head);
     /* fill here */ // put head at front of the list
 }
 
 function display(context) {
     // clear
     context.fillStyle = "black";
-    context.fillRect(0, 0, canvas.width, canvas.height);
+    context.fillRect(0, 0, context.canvas.width, context.canvas.height);
     // draw all elements
     context.fillStyle = "cyan";
     snake.forEach(element =>
@@ -85,7 +91,7 @@ function display(context) {
 }
 
 function fillBox(context, element) {
-    context.fillRect(element.x * 20 + 1, element.y * 20 + 1, 18, 18);
+    context.fillRect(element.x * 20  , element.y * 20, 18, 18);
 }
 
 
