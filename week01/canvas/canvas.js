@@ -9,6 +9,8 @@ const west  = {dx: -1, dy:  0};
 const canvas = document.getElementById("canvas");
 const context = canvas.getContext("2d"); // 2D-Kontext für Zeichnungen
 
+let score = document.getElementById("Highscore")
+
 const FIELD_WIDTH = 400;
 const FIELD_HEIGHT = 400;
 
@@ -66,13 +68,14 @@ function start() {
         setInterval(() => {
             movePlayer(lastDirection.dx, lastDirection.dy);
             display(context);
-        }, 100)
+        }, 50)
         
 }
 
 function outOfBound(x, y){
     if (x < 0 || y < 0 || x > 19 || y > 19){
         resetGame();
+        score = 0;
         return false;
         
     }
@@ -96,6 +99,7 @@ function movePlayer(dx,dy) {
 
             if (playerEquals()) {
                 moveFood();
+                countScore()
                 tail.push({position: {x: 0, y: 0}});
             }
 
@@ -180,5 +184,10 @@ function resetGame(){
     FOOD.y = 10;
 
     display(context);
+}
+
+function countScore(){
+    score++
+    
 }
 
