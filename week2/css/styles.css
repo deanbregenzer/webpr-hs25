@@ -1,0 +1,56 @@
+/*Layout
+DISPLAY
+block-level content
+- block-level element content fills the available inline space of the parent
+- always starts on a new line (<p>)
+- take up the full width of their parent container
+inline-level content
+- are aligned by the baselines of their text
+flex
+- the element behaves like a block-level element -> according to flexbox model
+grid
+- behaves like block-level element -> according to grid-model
+FLEXBOX
+- child items become flex items
+- justify content: space-between, space-around, center, start, space-evently (horizontal)
+- align-items stretch: take full height (default)
+- align-content: start, center, space-between. space-around (vertical)
+
+flex auto
+flex: <flex-grow> <flex-shrink> <flex-basis> :
+POSITIONING
+-position: relative:
+ 30px 30px right 30 and down 30
+ - absolute: element no longer exists in normal flow (sits on own layer)
+    - is positioned to nearest positioned ancestor/parent -> position:relative
+
+SIZES
+1em -> computed font-size of element parent
+default font-size: 16px
+padding: top left right bottom
+padding: 10% -> relative to the width of containing block ex. 400px *10% 40px padding on all sides
+margin: empty area used to separate the element from its neighbors
+BOX
+box-sizing: sets how total width and height of element is calculated
+- border-box: tells browser to account for any border and padding in the values
+- content-box: width or any border or padding will be added to final rendered width
+- every element has content box (width, height)
+- if not set -> stretch to fit the parent by default
+
+SELECTORS
+.box{} = class selector
+.box.highlighted{} only elements with both classes
+p , div , h1 {} = element selector
+div p {} = combinator
+div > p }{} affects direct children only
+div ~ p {}: any following siblings
+input:hover {} pseudo classes
+p::first-letter {} pseudo elements -> style specific part of an element
+
+BOX-SHADOW
+2 values -> offset x and offset y
+3 values -> x ,y and blur ball.radius
+4 values -> x,y,blur, spread
++ color , inset keyword (optional)
+box-shadow:
+ */

@@ -1,15 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
+<link rel="stylesheet" href="../css/ball.css">
 <head>
     <meta charset="UTF-8">
     <title>Ball</title>
 </head>
-<body onload="start()">
+<body>
 
-<canvas id="canvas" width="400" height="400" > 	
-</canvas>
+<div class="container">
+    <div class="canvas-container">
+        <div class="ball-container">
+    <canvas id="canvas" width="400" height="400" >
+    </canvas>
+        </div>
+    <canvas id ="hole" width="400" height="50"></canvas>
+    </div>
+    <button class="create-btn">create Ball</button>
+    <button class="clear-btn">clear</button>
+</div>
 
-<script src="ball.js"></script>
+<script type ="module"  src="../js/main.js"></script>
 
 </body>
 </html>
